@@ -225,10 +225,76 @@ footer{padding-block:36px 48px;color:var(--muted);font-size:.9rem}
   *,*::before,*::after{transition:none!important;animation:none!important}
   .card:hover,.tab:active,.compare:hover .grip,.compare:active .grip{transform:none}
 }
+
+/* Concepts */
+#cTabs{justify-content:center;margin-bottom:18px;scroll-margin-top:64px}
+.panel{display:none;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center;background:var(--surface);border-radius:24px;padding:clamp(20px,3vw,44px)}
+.panel.on{display:grid}
+.viz{display:grid;gap:12px;min-width:0}
+.viz-box{background:var(--pale);border-radius:16px;padding:18px;min-width:0}
+.viz svg.d{display:block;width:100%;height:auto}
+.viz text{font:13px var(--body);fill:var(--muted);letter-spacing:0}
+.cap{font-size:.92rem;line-height:1.35;color:var(--muted);text-align:center}
+.txt{display:grid;gap:16px;align-content:center;min-width:0}
+.txt h3{font-size:clamp(1.65rem,2.9vw,2.35rem);line-height:1.1;letter-spacing:-.024em;font-weight:700}
+.txt p{line-height:1.45}
+.txt p a{color:var(--accent);font-weight:500;transition:color .15s ease}
+.txt p a:hover{color:var(--blue)}
+.paper{display:inline-flex;align-items:center;gap:6px;vertical-align:baseline}
+.paper svg{width:16px;height:16px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0;padding:0;list-style:none}
+.facts li{display:grid;gap:4px;align-content:start;justify-items:center;text-align:center;padding:14px 10px;border-radius:14px;background:var(--pale);transition:background-color .2s ease}
+.facts li:hover{background:var(--surface-2)}
+.facts b{font:700 1.15rem/1.15 var(--display);letter-spacing:-.016em;color:var(--accent)}
+.facts span{font-size:.88rem;line-height:1.28;color:var(--muted)}
+.next-wrap{grid-column:1/-1;display:flex;justify-content:flex-end}
+.ch-next{appearance:none;border:0;background:transparent;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:40px;padding:0 14px;border-radius:980px;color:var(--accent);font:600 15px/1 var(--body);cursor:pointer;transition:background-color .15s ease,transform .1s ease-out}
+.ch-next:hover{background:var(--surface-2)}
+.ch-next:active{transform:scale(.97)}
+.ch-next svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#pxCanvas{display:block;width:100%;height:auto;aspect-ratio:760/480;border-radius:12px;background:var(--pale)}
+.viz .tabs{justify-content:center}
+.meter{display:grid;grid-template-columns:58px minmax(0,1fr) 84px;align-items:center;gap:10px;font-size:.93rem}
+.meter .t{height:10px;border-radius:980px;background:var(--pill);overflow:hidden}
+.meter i{display:block;height:100%;border-radius:980px;background:var(--blue);transition:width .3s ease}
+.meter b{font-weight:600;text-align:right;font-variant-numeric:tabular-nums}
+.qp{display:grid;gap:12px}
+.mini{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.mini div{background:var(--pale);border-radius:14px;padding:14px 16px;transition:background-color .2s ease;min-width:0}
+.mini div:hover{background:var(--surface-2)}
+.mini b{display:block;font-weight:600;margin-bottom:3px}
+.mini span{display:block;font-size:.9rem;line-height:1.32;color:var(--muted)}
+.vs{display:grid;grid-template-columns:82px minmax(0,1fr);gap:8px 10px;align-items:center;font-size:.92rem}
+.vs b{font-weight:600}
+.vs span{display:flex;align-items:center;justify-content:center;text-align:center;min-height:44px;padding:8px 12px;border-radius:12px;background:var(--surface-2);line-height:1.25}
+.vs span.miss{background:var(--warn-bg)}
+.metric{display:grid;grid-template-columns:104px minmax(0,1fr);gap:16px;align-items:center;background:var(--pale);border-radius:16px;padding:14px 16px;transition:background-color .2s ease}
+.metric:hover{background:var(--surface-2)}
+.metric svg{width:100%;height:auto;display:block}
+.metric b{display:block;font-weight:600}
+.metric span{display:block;font-size:.92rem;line-height:1.34;color:var(--muted)}
+.gloss{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 40px;margin:0}
+.gloss div{padding:12px 0;border-top:1px solid var(--line);min-width:0}
+.gloss div:nth-child(-n+2){border-top:0}
+.gloss dt{font-weight:600}
+.gloss dd{margin:2px 0 0;font-size:.95rem;line-height:1.4;color:var(--muted)}
+.gloss-wrap{margin-top:14px}
+@media (min-width:1041px){.panel{min-height:600px}}
+@media (max-width:1040px){
+  .panel{grid-template-columns:minmax(0,1fr)}
+  .txt{order:-1}
+  .next-wrap{order:3}
+}
+@media (max-width:640px){
+  .nav .links a{padding:0 8px}
+  .facts,.gloss{grid-template-columns:minmax(0,1fr)}
+  .gloss div:nth-child(2){border-top:1px solid var(--line)}
+  .mini{grid-template-columns:minmax(0,1fr)}
+}
 </style>
 
 <main lang="en">
-  <nav class="nav" aria-label="Sections"><div class="wrap nav-in"><b>Thesis recap</b><div class="links"><a href="#method">Method</a><a href="#results">Results</a><a href="#networks">Networks</a><a href="#allData" id="dataLink">Data</a></div></div></nav>
+  <nav class="nav" aria-label="Sections"><div class="wrap nav-in"><b>Thesis recap</b><div class="links"><a href="#concepts">Concepts</a><a href="#method">Method</a><a href="#results">Results</a><a href="#networks">Networks</a><a href="#allData" id="dataLink">Data</a></div></div></nav>
   <div class="wrap">
     <section class="hero">
       <div class="hero-grid">
@@ -260,7 +326,188 @@ footer{padding-block:36px 48px;color:var(--muted);font-size:.9rem}
     </section>
   </div>
 
-  <div class="alt"><div class="wrap"><section id="method">
+  <div class="alt"><div class="wrap"><section id="concepts">
+    <div class="head">
+      <h2>The ideas behind it</h2>
+      <p class="muted">A short refresher on the technology, in the order the video travels through it.</p>
+    </div>
+    <div class="tabs" id="cTabs" role="group" aria-label="Choose a chapter"></div>
+
+    <article class="panel on" data-c="0">
+      <div class="viz"><div class="viz-box">
+        <svg class="d" viewBox="0 0 420 250" role="img" aria-label="A video player stepping between 270p, 540p, 720p and 1080p as connection speed changes">
+          <g><line x1="62" x2="416" y1="40" y2="40" stroke="var(--line)"/><line x1="62" x2="416" y1="90" y2="90" stroke="var(--line)"/><line x1="62" x2="416" y1="140" y2="140" stroke="var(--line)"/><line x1="62" x2="416" y1="190" y2="190" stroke="var(--line)"/></g>
+          <text x="0" y="45">1080p</text><text x="0" y="95">720p</text><text x="0" y="145">540p</text><text x="0" y="195">270p</text>
+          <path d="M62,80 C100,70 120,50 150,30 S210,35 225,90 S265,165 290,178 S320,195 335,130 S385,75 416,80" fill="none" stroke="var(--s4)" stroke-width="2" stroke-dasharray="5 5"/>
+          <path d="M62,90 H140 V40 H220 V140 H280 V190 H330 V90 H416" fill="none" stroke="var(--s1)" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round"/>
+          <line x1="62" x2="84" y1="234" y2="234" stroke="var(--s1)" stroke-width="3.5"/><text x="90" y="239">version played</text>
+          <line x1="206" x2="228" y1="234" y2="234" stroke="var(--s4)" stroke-width="2" stroke-dasharray="5 5"/><text x="234" y="239">connection speed</text>
+        </svg></div>
+        <p class="cap">Illustration of a player moving between versions</p>
+      </div>
+      <div class="txt">
+        <h3>Why shrink a video at all</h3>
+        <p>Raw 4K is far too heavy to send. Streaming services keep several versions of each video at different sizes and quality levels, called a <span class="key">bitrate ladder</span>. The player moves up and down it as your connection changes.</p>
+        <ul class="facts">
+          <li><b>8.3 million</b><span>pixels in one 4K frame</span></li>
+          <li><b>About 6 Gbit/s</b><span>my clip with no compression</span></li>
+          <li><b>29.6 Mbit/s</b><span>the same clip as a normal H.264 file</span></li>
+        </ul>
+        <p>My starting point was the <a class="paper" href="https://doi.org/10.1109/TCSVT.2022.3229079"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h8l4 4v14H7zM15 3v4h4M10 12h6M10 16h6"/></svg>DeepStream paper</a> from the University of Klagenfurt. It sends devices with a GPU a small upscaling network along with the normal video, and reports bitrate savings of 34% at equal PSNR and 36% at equal VMAF for those devices.</p>
+      </div>
+    </article>
+
+    <article class="panel" data-c="1">
+      <div class="viz">
+        <div class="viz-box"><canvas id="pxCanvas" width="760" height="480" role="img" aria-label="A crop of the clip shown with fewer and fewer pixels"></canvas></div>
+        <div class="tabs" id="pxTabs" role="group" aria-label="Choose a resolution"></div>
+        <p class="cap" id="pxCap"></p>
+      </div>
+      <div class="txt">
+        <h3>Fewer pixels, less to send</h3>
+        <p>Resolution is how many pixels a frame has. Going from 4K to 1080p keeps <span class="key">one pixel in four</span>. Going to 270p keeps <span class="key">one in 64</span>.</p>
+        <p>The upscaling step later has to fill in everything that was removed. The more you remove, the more it has to get right.</p>
+        <ul class="facts">
+          <li><b>×2</b><span>1080p back to 4K</span></li>
+          <li><b>×4</b><span>540p back to 4K</span></li>
+          <li><b>×8</b><span>270p back to 4K</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="panel" data-c="2">
+      <div class="viz">
+        <div class="viz-box">
+          <svg class="d" viewBox="0 0 420 92" role="img" aria-label="One full frame followed by frames that only store a small changed area">
+            <rect x="1" y="1" width="72" height="50" rx="5" fill="var(--s3)"/><circle cx="37" cy="26" r="13" fill="var(--s2)"/>
+            <rect x="85" y="1" width="72" height="50" rx="5" fill="none" stroke="var(--s4)"/><rect x="118" y="17" width="20" height="20" rx="2" fill="var(--s1)"/>
+            <rect x="169" y="1" width="72" height="50" rx="5" fill="none" stroke="var(--s4)"/><rect x="206" y="15" width="20" height="20" rx="2" fill="var(--s1)"/>
+            <rect x="253" y="1" width="72" height="50" rx="5" fill="none" stroke="var(--s4)"/><rect x="294" y="13" width="20" height="20" rx="2" fill="var(--s1)"/>
+            <rect x="337" y="1" width="72" height="50" rx="5" fill="none" stroke="var(--s4)"/><rect x="382" y="12" width="20" height="20" rx="2" fill="var(--s1)"/>
+            <text x="37" y="76" text-anchor="middle">full frame</text><text x="247" y="76" text-anchor="middle">later frames store only what changed</text>
+          </svg>
+        </div>
+        <div class="viz-box qp">
+          <div class="tabs" id="qpTabs" role="group" aria-label="Choose a QP value"></div>
+          <div class="meter"><span>Bitrate</span><span class="t"><i id="qpB"></i></span><b id="qpBv"></b></div>
+          <div class="meter"><span>VMAF</span><span class="t"><i id="qpV"></i></span><b id="qpVv"></b></div>
+          <p class="cap">My results at 1080p with bicubic upscaling</p>
+        </div>
+      </div>
+      <div class="txt">
+        <h3>Store the changes, round off the detail</h3>
+        <p>Neighbouring frames look almost the same. A codec stores a complete frame, then mostly records what moved. This is called inter-frame prediction.</p>
+        <p>It then rounds off fine detail. <span class="key">QP</span> is the dial for how hard, from about 0 to 51. Low QP gives high quality and a big file. In my tests, each +5 QP cut the bitrate by more than half.</p>
+        <ul class="facts">
+          <li><b>HEVC</b><span>the compression standard, also called H.265</span></li>
+          <li><b>x265</b><span>the free encoder that implements it</span></li>
+          <li><b>FFmpeg</b><span>the tool that ran every step</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="panel" data-c="3">
+      <div class="viz"><div class="viz-box">
+        <svg class="d" viewBox="0 0 420 212" role="img" aria-label="A four by four block of known pixels around one new pixel, and a smooth curve through known values">
+          <rect x="1" y="11" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.35"/><rect x="45" y="11" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.5"/><rect x="89" y="11" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.65"/><rect x="133" y="11" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.45"/><rect x="1" y="55" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.55"/><rect x="45" y="55" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.9"/><rect x="89" y="55" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.75"/><rect x="133" y="55" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.5"/><rect x="1" y="99" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.4"/><rect x="45" y="99" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.8"/><rect x="89" y="99" width="42" height="42" rx="3" fill="var(--s1)" opacity="1"/><rect x="133" y="99" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.6"/><rect x="1" y="143" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.3"/><rect x="45" y="143" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.5"/><rect x="89" y="143" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.7"/><rect x="133" y="143" width="42" height="42" rx="3" fill="var(--s1)" opacity="0.45"/>
+          <circle cx="88" cy="98" r="11" fill="#fff" stroke="var(--s2)" stroke-width="3"/>
+          <text x="88" y="205" text-anchor="middle">16 known pixels, 1 new</text>
+          <line x1="222" x2="420" y1="170" y2="170" stroke="var(--line)"/>
+          <path d="M236,130 C245.300,118.300 273.300,66.700 292,60 C310.700,53.300 329.300,93.300 348,90 C366.700,86.700 394.700,48.300 404,40" fill="none" stroke="var(--s1)" stroke-width="3" stroke-linecap="round"/>
+          <line x1="320" x2="320" y1="74" y2="170" stroke="var(--s2)" stroke-width="1.5" stroke-dasharray="4 4"/>
+          <circle cx="236" cy="130" r="6" fill="var(--s1)"/><circle cx="292" cy="60" r="6" fill="var(--s1)"/><circle cx="348" cy="90" r="6" fill="var(--s1)"/><circle cx="404" cy="40" r="6" fill="var(--s1)"/>
+          <circle cx="320" cy="74" r="7" fill="#fff" stroke="var(--s2)" stroke-width="3"/>
+          <text x="320" y="205" text-anchor="middle">new value read off the curve</text>
+        </svg></div>
+        <p class="cap">Each new pixel comes from its nearest neighbours</p>
+      </div>
+      <div class="txt">
+        <h3>Bicubic: a smooth blend of neighbours</h3>
+        <p>To create a new pixel, bicubic looks at the <span class="key">4×4 block</span> of known pixels around it and blends them along a smooth curve. The closest pixels count the most.</p>
+        <p>It knows nothing about the picture, so it cannot add real detail. It only smooths between what is already there.</p>
+        <ul class="facts">
+          <li><b>Fast</b><span>simple maths on each pixel</span></li>
+          <li><b>No training</b><span>the same formula for every video</span></li>
+          <li><b>Slightly soft</b><span>the baseline a network has to beat</span></li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="panel" data-c="4">
+      <div class="viz">
+        <div class="viz-box">
+          <svg class="d" viewBox="0 0 420 152" role="img" aria-label="A small frame passes through learned layers and an upscaling layer to become a large frame">
+            <rect x="0" y="45" width="42" height="42" rx="4" fill="var(--s3)"/>
+            <path d="M48 66h14M57 61l5 5-5 5" fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="70" y="20" width="16" height="92" rx="5" fill="var(--s2)"/><rect x="96" y="43" width="16" height="46" rx="5" fill="var(--s1)"/><rect x="122" y="43" width="16" height="46" rx="5" fill="var(--s1)"/><rect x="148" y="43" width="16" height="46" rx="5" fill="var(--s1)"/><rect x="174" y="20" width="16" height="92" rx="5" fill="var(--s2)"/>
+            <path d="M198 66h14M207 61l5 5-5 5" fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M220 48 L262 18 V114 L220 84 Z" fill="var(--s3)"/>
+            <path d="M268 66h14M277 61l5 5-5 5" fill="none" stroke="var(--muted)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="290" y="1" width="130" height="130" rx="6" fill="var(--s3)" opacity=".55"/><circle cx="355" cy="66" r="34" fill="var(--s2)"/>
+            <text x="21" y="147" text-anchor="middle">small</text><text x="130" y="147" text-anchor="middle">learned layers</text><text x="241" y="147" text-anchor="middle">enlarge</text><text x="355" y="147" text-anchor="middle">large</text>
+          </svg>
+        </div>
+        <div class="viz-box vs">
+          <b>Trained on</b><span>Clean image, bicubic shrink</span>
+          <b>Tested on</b><span class="miss">FFmpeg shrink, then HEVC artefacts</span>
+        </div>
+      </div>
+      <div class="txt">
+        <h3>Super-resolution: learned guessing</h3>
+        <p>A super-resolution network trains on image pairs, a sharp original and a shrunken copy. It learns <span class="key">what detail usually goes with which pattern</span>, then fills that in on new images.</p>
+        <div class="mini">
+          <div><b>FSRCNN</b><span>Works on the small image, then a final learned layer enlarges it.</span></div>
+          <div><b>ESPCN</b><span>Also works small, then rearranges its output channels into a larger image.</span></div>
+        </div>
+        <p>The catch is the training data. These 2016 models learned one clean kind of shrinking, and my video was also compressed. Newer models such as Real-ESRGAN and SwinIR train on messy, real-world damage.</p>
+      </div>
+    </article>
+
+    <article class="panel" data-c="5">
+      <div class="viz">
+        <div class="metric">
+          <svg viewBox="0 0 104 62" aria-hidden="true"><rect x="1.0" y="6" width="15" height="22" rx="2" fill="var(--s1)" opacity="0.3"/><rect x="18.3" y="6" width="15" height="22" rx="2" fill="var(--s1)" opacity="0.6"/><rect x="35.6" y="6" width="15" height="22" rx="2" fill="var(--s1)" opacity="0.9"/><rect x="52.9" y="6" width="15" height="22" rx="2" fill="var(--s1)" opacity="0.5"/><rect x="70.2" y="6" width="15" height="22" rx="2" fill="var(--s1)" opacity="0.7"/><rect x="87.5" y="6" width="15" height="22" rx="2" fill="var(--s1)" opacity="0.4"/><rect x="1.0" y="32" width="15" height="22" rx="2" fill="var(--s1)" opacity="0.3"/><rect x="18.3" y="32" width="15" height="22" rx="2" fill="var(--s1)" opacity="0.6"/><rect x="35.6" y="32" width="15" height="22" rx="2" fill="var(--s1)" opacity="0.9"/><rect x="52.9" y="32" width="15" height="22" rx="2" fill="var(--s1)" opacity="0.5"/><rect x="70.2" y="32" width="15" height="22" rx="2" fill="var(--s1)" opacity="0.2"/><rect x="87.5" y="32" width="15" height="22" rx="2" fill="var(--s1)" opacity="0.4"/><rect x="69" y="3" width="19" height="51" rx="4" fill="none" stroke="var(--s2)" stroke-width="2"/></svg>
+          <div><b>PSNR, in dB</b><span>Compares pixel by pixel. About 30 dB is mediocre, 40 dB and up is very good.</span></div>
+        </div>
+        <div class="metric">
+          <svg viewBox="0 0 104 62" aria-hidden="true"><rect x="1" y="6" width="46" height="46" rx="4" fill="var(--s3)"/><path d="M1 44 L47 12 V52 H1 Z" fill="var(--s2)"/><rect x="57" y="6" width="46" height="46" rx="4" fill="var(--s3)"/><path d="M57 48 L103 16 V52 H57 Z" fill="var(--s2)"/><rect x="14" y="18" width="20" height="20" fill="none" stroke="#fff" stroke-width="2"/><rect x="70" y="20" width="20" height="20" fill="none" stroke="#fff" stroke-width="2"/></svg>
+          <div><b>SSIM, 0 to 1</b><span>Compares local structure, such as edges and texture. Closer to 1 is better.</span></div>
+        </div>
+        <div class="metric">
+          <svg viewBox="0 0 104 62" aria-hidden="true"><path d="M10 54 A42 42 0 0 1 94 54" fill="none" stroke="var(--pill)" stroke-width="9" stroke-linecap="round"/><path d="M10 54 A42 42 0 0 1 80.700 24.300" fill="none" stroke="var(--s1)" stroke-width="9" stroke-linecap="round"/><text x="52" y="53" text-anchor="middle" style="font:700 17px var(--display);fill:var(--ink)">77.5</text></svg>
+          <div><b>VMAF, 0 to 100</b><span>Netflix's score, trained on human opinion. 90 and up is excellent, under 50 is clearly degraded.</span></div>
+        </div>
+      </div>
+      <div class="txt">
+        <h3>Three report cards for quality</h3>
+        <p>Every upscaled video was compared against the original 4K clip, called the reference. Higher is better on all three scores.</p>
+        <p><span class="key">The scores can disagree.</span> PSNR and SSIM reward being exactly right, so a safe blur scores well and a plausible invented texture gets punished. This is the perception–distortion trade-off.</p>
+        <p>That is why I read VMAF first. At 1080p and QP 32, the networks trailed bicubic by about 6 dB on PSNR but only about 3 points on VMAF.</p>
+      </div>
+    </article>
+
+    <details class="gloss-wrap">
+      <summary>Glossary<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+      <div class="detail-body">
+        <dl class="gloss">
+          <div><dt>Bitrate</dt><dd>Bits per second of compressed video. It is the cost axis on every chart here.</dd></div>
+          <div><dt>Codec</dt><dd>Software or a standard that compresses and decompresses video.</dd></div>
+          <div><dt>Artefacts</dt><dd>Visible damage from compression, such as blocks and smears.</dd></div>
+          <div><dt>Reference</dt><dd>The original video that every result is scored against.</dd></div>
+          <div><dt>Per-title encoding</dt><dd>Building a bitrate ladder tuned to one video instead of using one ladder for everything.</dd></div>
+          <div><dt>Convex hull</dt><dd>The set of best quality-for-bitrate points, used to pick the rungs of a ladder.</dd></div>
+          <div><dt>Base and enhancement layer</dt><dd>In DeepStream, the normal video for every device, plus the upscaling network for devices with a GPU.</dd></div>
+          <div><dt>DeepCABAC</dt><dd>A compression method for neural networks, used in DeepStream to keep the extra data small.</dd></div>
+          <div><dt>libvmaf</dt><dd>Netflix's VMAF library, built into FFmpeg for this project.</dd></div>
+          <div><dt>OpenCV dnn_superres</dt><dd>The module that ran FSRCNN and ESPCN in Python.</dd></div>
+          <div><dt>BT.601 and BT.709</dt><dd>Two standards for converting between RGB and video colour. Mixing them shifts pixel values.</dd></div>
+          <div><dt>Log scale</dt><dd>An axis where each step multiplies the value, so tiny and huge bitrates fit on one chart.</dd></div>
+        </dl>
+      </div>
+    </details>
+  </section></div></div>
+
+  <div class="wrap"><section id="method">
     <div class="head">
       <h2>One clip, five steps, 40 results</h2>
       <p class="muted">The source was a 5-second 4K clip at 59.94 fps, 303 frames in total. Every upscaled version was scored against that original.</p>
@@ -272,9 +519,9 @@ footer{padding-block:36px 48px;color:var(--muted);font-size:.9rem}
       <li class="card step"><div class="top"><svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><rect x="4" y="18" width="10" height="10" rx="1"/><path d="M14 18l13-13M18 5h9v9M18 27h9V18"/></svg><span class="num">4</span></div><h3>Upscale</h3><p>Back to 4K with bicubic, FSRCNN or ESPCN.</p></li>
       <li class="card step"><div class="top"><svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M8 4h13l5 5v19H8zM21 4v5h5"/><path d="M12 22l3-4 3 2 4-6"/></svg><span class="num">5</span></div><h3>Score</h3><p>PSNR and SSIM for fidelity, VMAF for perceived quality.</p></li>
     </ol>
-  </div></section></div>
+  </section></div>
 
-  <div class="wrap"><section id="results">
+  <div class="alt"><div class="wrap"><section id="results">
     <div class="head">
       <h2>Starting resolution matters most</h2>
       <p class="muted"><span class="key">Pick the highest resolution your bitrate can fill.</span> At 344 kbps, 720p reached VMAF 41.5. At 321 kbps, 1080p reached only 38.7, because it had too few bits for its pixels.</p>
@@ -287,9 +534,9 @@ footer{padding-block:36px 48px;color:var(--muted);font-size:.9rem}
       <div class="plot" id="plotA"></div>
     </div>
     <div class="ladder" id="ladder"></div>
-  </section></div>
+  </section></div></div>
 
-  <div class="alt"><div class="wrap"><section id="networks">
+  <div class="wrap"><section id="networks">
     <div class="head">
       <h2>The networks stayed behind bicubic</h2>
       <p class="muted">The gap ran from under 1 VMAF point at the lowest bitrate to about 5–6 points at the highest, and up to about 9 points at 540p. PSNR makes the gap look larger than VMAF does.</p>
@@ -310,9 +557,9 @@ footer{padding-block:36px 48px;color:var(--muted);font-size:.9rem}
       <div class="card reason"><svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><path d="M5 11h20M20 6l5 5-5 5M27 21H7M12 16l-5 5 5 5"/></svg><h3>Bicubic has a head start</h3><p>The small versions were made by roughly bicubic scaling, so bicubic upscaling recovers most of the low-frequency content.</p></div>
       <div class="card reason"><svg class="ic" viewBox="0 0 32 32" aria-hidden="true"><circle cx="7" cy="16" r="3"/><circle cx="25" cy="8" r="3"/><circle cx="25" cy="24" r="3"/><path d="M10 15l12-6M10 17l12 6"/></svg><h3>Old, tiny models</h3><p>Both date from 2016 and have only a few thousand parameters. Newer models are built for compressed video.</p></div>
     </div>
-  </div></section></div>
+  </section></div>
 
-  <div class="wrap"><section>
+  <div class="alt"><div class="wrap"><section>
     <div class="head">
       <h2>The first result was wrong</h2>
       <p class="muted">The first run showed bicubic ahead by about 9 dB, with network PSNR stuck near 33 dB across a 27× bitrate range. That looked too good to be true, so I checked the measurement itself.</p>
@@ -335,7 +582,7 @@ footer{padding-block:36px 48px;color:var(--muted);font-size:.9rem}
         </ul>
       </div>
     </details>
-  </section></div>
+  </section></div></div>
 
   <div class="band"><div class="wrap"><section>
     <div class="band-grid">
@@ -458,6 +705,40 @@ Object.keys(D).forEach(function(r){rows+='<tr class="group"><td colspan="6">'+r+
 el('dataTable').innerHTML=rows+'</tbody>';
 
 el('dataLink').addEventListener('click',function(){el('allData').open=true});
+
+// Concept chapters
+var CH=['Streaming','Pixels','Compression','Bicubic','Neural networks','Quality scores'];
+var chPanels=[].slice.call(document.querySelectorAll('.panel'));
+function showCh(name){var i=CH.indexOf(name);chPanels.forEach(function(p,n){p.classList.toggle('on',n===i)})}
+tabs(el('cTabs'),CH,CH[0],showCh);
+chPanels.forEach(function(p,i){
+  if(i===CH.length-1)return;
+  var w=document.createElement('div');w.className='next-wrap';
+  var b=document.createElement('button');b.type='button';b.className='ch-next';
+  b.innerHTML='Next: '+CH[i+1]+'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+  b.addEventListener('click',function(){el('cTabs').children[i+1].click();el('cTabs').scrollIntoView({block:'start'})});
+  w.appendChild(b);p.appendChild(w);
+});
+
+// Pixel demo: the original crop with only the pixels each resolution keeps
+var PX=[['4K',1,'Every original pixel is kept'],['1080p',2,'Each block replaces 4 original pixels'],['720p',3,'Each block replaces 9 original pixels'],['540p',4,'Each block replaces 16 original pixels'],['270p',8,'Each block replaces 64 original pixels']];
+var pxImg=new Image(),pxCur=PX[4];
+function drawPx(){
+  if(!pxImg.complete||!pxImg.naturalWidth)return;
+  var c=el('pxCanvas'),g=c.getContext('2d'),f=pxCur[1],o=document.createElement('canvas');
+  o.width=Math.ceil(760/f);o.height=Math.ceil(480/f);
+  var og=o.getContext('2d');og.imageSmoothingEnabled=true;og.imageSmoothingQuality='high';og.drawImage(pxImg,0,0,o.width,o.height);
+  g.imageSmoothingEnabled=false;g.drawImage(o,0,0,o.width,o.height,0,0,o.width*f,o.height*f);
+  el('pxCap').textContent=pxCur[0]+', no compression. '+pxCur[2];
+}
+pxImg.onload=drawPx;pxImg.src='images/crop_original_f150.jpg';
+tabs(el('pxTabs'),PX,pxCur,function(p){pxCur=p;drawPx()},function(p){return p[0]});
+el('pxCap').textContent=pxCur[0]+', no compression. '+pxCur[2];
+
+// QP dial, real 1080p bicubic results
+var QP=D['1080p'].bicubic;
+function setQP(d){el('qpB').style.width=(d[1]/QP[0][1]*100)+'%';el('qpBv').textContent=d[1].toLocaleString('en-US')+' kbps';el('qpV').style.width=d[4]+'%';el('qpVv').textContent=d[4].toFixed(2)}
+tabs(el('qpTabs'),QP,QP[2],setQP,function(d){return 'QP '+d[0]});setQP(QP[2]);
 
 // Draw now and redraw when the column width changes
 function all(){drawA();drawB()}
